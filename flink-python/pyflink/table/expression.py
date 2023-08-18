@@ -1564,6 +1564,13 @@ class Expression(Generic[T]):
         else:
             return _ternary_op("array_join")(self, delimiter, null_replacement)
 
+    def sort_array(self) -> 'Expression':
+        """
+        Returns an array in sorted order.
+        If the array itself is null, the function will return null.
+        """
+        return _binary_op("sortArray")(self)
+
     @property
     def map_keys(self) -> 'Expression':
         """

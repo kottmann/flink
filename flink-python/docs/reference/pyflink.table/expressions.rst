@@ -235,6 +235,7 @@ advanced type helper functions
     Expression.array_max
     Expression.array_slice
     Expression.array_union
+    Expression.sort_array
     Expression.map_entries
     Expression.map_keys
     Expression.map_values

@@ -50,7 +50,8 @@ class CollectionFunctionsITCase extends BuiltInFunctionTestBase {
                         arrayConcatTestCases(),
                         arrayMaxTestCases(),
                         arrayJoinTestCases(),
-                        arraySliceTestCases())
+                        arraySliceTestCases(),
+                        sortArrayTestCases())
                 .flatMap(s -> s);
     }
 
@@ -1192,5 +1193,9 @@ class CollectionFunctionsITCase extends BuiltInFunctionTestBase {
                                 "ARRAY_SLICE()",
                                 " No match found for function signature ARRAY_SLICE()")
                         .testSqlValidationError("ARRAY_SLICE(null)", "Illegal use of 'NULL'"));
+    }
+
+    private Stream<TestSetSpec> sortArrayTestCases() {
+
     }
 }

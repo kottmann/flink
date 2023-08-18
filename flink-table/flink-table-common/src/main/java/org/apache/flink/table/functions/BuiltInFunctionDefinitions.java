@@ -344,6 +344,19 @@ public final class BuiltInFunctionDefinitions {
                             "org.apache.flink.table.runtime.functions.scalar.ArrayJoinFunction")
                     .build();
 
+    public static final BuiltInFunctionDefinition SORT_ARRAY =
+            BuiltInFunctionDefinition.newBuilder()
+                    .name("SORT_ARRAY")
+                    .kind(SCALAR)
+                    .inputTypeStrategy(
+                            sequence(
+                                    Collections.singletonList("haystack"),
+                                    Collections.singletonList(logical(LogicalTypeRoot.ARRAY))))
+                    .outputTypeStrategy(nullableIfArgs(argument(0)))
+                    .runtimeClass(
+                            "org.apache.flink.table.runtime.functions.scalar.SortArrayFunction")
+                    .build();
+
     public static final BuiltInFunctionDefinition INTERNAL_REPLICATE_ROWS =
             BuiltInFunctionDefinition.newBuilder()
                     .name("$REPLICATE_ROWS$1")

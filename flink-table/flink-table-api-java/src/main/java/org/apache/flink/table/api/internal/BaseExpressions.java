@@ -168,6 +168,7 @@ import static org.apache.flink.table.functions.BuiltInFunctionDefinitions.SIGN;
 import static org.apache.flink.table.functions.BuiltInFunctionDefinitions.SIMILAR;
 import static org.apache.flink.table.functions.BuiltInFunctionDefinitions.SIN;
 import static org.apache.flink.table.functions.BuiltInFunctionDefinitions.SINH;
+import static org.apache.flink.table.functions.BuiltInFunctionDefinitions.SORT_ARRAY;
 import static org.apache.flink.table.functions.BuiltInFunctionDefinitions.SPLIT_INDEX;
 import static org.apache.flink.table.functions.BuiltInFunctionDefinitions.SQRT;
 import static org.apache.flink.table.functions.BuiltInFunctionDefinitions.STDDEV_POP;
@@ -1450,6 +1451,9 @@ public abstract class BaseExpressions<InType, OutType> {
                         .toArray(Expression[]::new);
         return toApiSpecificExpression(unresolvedCall(ARRAY_CONCAT, args));
     }
+
+    public OutType sortArray() {
+        return toApiSpecificExpression(unresolvedCall(SORT_ARRAY, toExpr()));    }
 
     private InType[] convertToArrays(InType[] arrays) {
         if (arrays == null || arrays.length == 0) {
